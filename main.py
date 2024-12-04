@@ -195,7 +195,7 @@ def travel_method(from_city, to_city):
                 operators = ", ".join(coach_routes[from_city][to_city])
                 travel_method_app.destroy() #close window
                 coach_details(from_city, to_city, operators) #show coach details
-
+        
     def update_selection(method):
         #change button color base on selected method
         selected_method.set(method)
@@ -241,6 +241,11 @@ def travel_method(from_city, to_city):
     )
     coach_button.grid(row=2, column=2, padx=20, pady=(0, 40))
 
+    #to go to the previous page to choose cities again
+    def go_back():
+        travel_method_app.destroy()
+        open_main_application()
+
     # Confirm button to proceed with the selected method
     confirm_button = tk.Button(
     travel_method_app,
@@ -250,12 +255,19 @@ def travel_method(from_city, to_city):
     bg="dark green",
     fg="white" 
 )
-    confirm_button.grid(row=3, column=0, columnspan=3, pady=(100, 20))
+    confirm_button.grid(row=3, column=0, columnspan=3, pady=(100, 20), padx=(900, 100), sticky="w")
+
+    #back button
+    back_button = tk.Button(
+    travel_method_app, text="Back ⬅️", font=("Time New Roman", 23, "bold"),
+    command=go_back, bg="dark red", fg="white", padx=20, pady=0
+)
+    back_button.grid(row=3, column=0, columnspan=2, pady=(100, 20)) #position of back button
 
     #centre the columns 
-    travel_method_app.grid_columnconfigure(0, weight=1)
-    travel_method_app.grid_columnconfigure(1, weight=1)
-    travel_method_app.grid_columnconfigure(2, weight=1)
+    travel_method_app.grid_columnconfigure(0, weight=1, uniform="equal")
+    travel_method_app.grid_columnconfigure(1, weight=1, uniform="equal")
+    travel_method_app.grid_columnconfigure(2, weight=1, uniform="equal")
 
     travel_method_app.mainloop() #run the app
 

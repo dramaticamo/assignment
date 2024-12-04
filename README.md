@@ -2,7 +2,7 @@
 **"Travel Planner"**
 
 # GitHub Repository
-The source code for this project is available on GitHub: https://github.com/xxyy
+The source code for this project is available on GitHub: https://github.com/dramaticamo/assignment.git
 
 ## Identification
 - **Name: Aung Myo Oo** 
